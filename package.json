@@ -1,0 +1,44 @@
+{
+  "name": "gmk-photo-studio",
+  "version": "1.0.0",
+  "description": "GMK Photo Studio — ID & passport photo editor, as a Windows desktop app.",
+  "main": "main.js",
+  "author": "GMK Web Services",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "co.za.gmkwebservices.photostudio",
+    "productName": "GMK Photo Studio",
+    "icon": "icon.png",
+    "files": [
+      "main.js",
+      "preload.js",
+      "app/**/*"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        { "target": "nsis", "arch": ["x64"] }
+      ],
+      "icon": "icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "GMK Photo Studio"
+    }
+  }
+}
